@@ -1,0 +1,23 @@
+SELECT name,productnumber
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where productnumber like 'fe%'
+
+SELECT name,listprice,color,productnumber, productcategoryid
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where productnumber='he%'
+
+SELECT name
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where productnumber between '2006/1/1'and '2006/12/31'
+
+SELECT name,listprice,productnumber
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where productmodelid = 7
+
+SELECT name,listprice,color,productnumber
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where productnumber is not null
+
+SELECT productcategoryid,name,productnumber
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where productnumber like 'fe%' or productcategoryid in (4,5,6)
