@@ -1,0 +1,68 @@
+SELECT TOP (1000) [AddressID]
+      ,[AddressLine1]
+      ,[AddressLine2]
+      ,[City]
+      ,[StateProvince]
+      ,[CountryRegion]
+  FROM [AdventureWorksLT2014].[SalesLT].[Address]
+  WHERE City like '__n%'
+
+SELECT TOP (1000) [AddressID]
+      ,[AddressLine1]
+      ,[AddressLine2]
+      ,[City]
+      ,[StateProvince]
+      ,[CountryRegion]
+  FROM [AdventureWorksLT2014].[SalesLT].[Address]
+  WHERE AddressID <= 28
+
+SELECT TOP (1000) [ProductID]
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+      ,[Size]
+      ,[Weight]
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  WHERE ProductID=706
+
+SELECT TOP (1000) [AddressID]
+      ,[AddressLine1]
+      ,[AddressLine2]
+      ,[City]
+      ,[StateProvince]
+  FROM [AdventureWorksLT2014].[SalesLT].[Address]
+WHERE city LIKE 'b%'
+
+SELECT TOP (1000) [ProductID]
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+      ,[Size]
+      ,[Weight]
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  WHERE ProductModelID BETWEEN 2 AND 33
+
+SELECT TOP (1000) [ProductID]
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+      ,[Size]
+      ,[Weight]
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  WHERE ProductModelID BETWEEN 2 AND 33 
+  AND COLOR='black'
+
+SELECT TOP (1000) [ProductID]
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ModifiedDate]
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  WHERE StandardCost <100
