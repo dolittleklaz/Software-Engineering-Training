@@ -1,0 +1,17 @@
+1.
+SELECT name, color, size, StandardCost
+      
+         
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where ProductNumber = '6'
+2. 
+SELECT name,ProductID, ProductNumber
+      
+         
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+
+  where listprice < 100
+3.
+SELECT Name, Color, Size, weight,listprice, ProductNumber 
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where ProductNumber like 'FR%'
