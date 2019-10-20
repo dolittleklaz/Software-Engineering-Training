@@ -1,0 +1,21 @@
+select Color
+from[SalesLT].[Product]
+
+where 'yellow' > 'blue'
+
+2. select ListPrice, standardcost
+from[SalesLT].[Product]
+
+where StandardCost < 700
+
+3. select ListPrice, standardcost
+from[SalesLT].[Product]
+
+where StandardCost > 700
+
+
+
+4. select *
+from[SalesLT].[Customer]
+
+where LastName like '%H'
