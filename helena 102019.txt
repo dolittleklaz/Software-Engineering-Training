@@ -1,0 +1,45 @@
+
+SELECT ProductID
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  WHERE COLOR LIKE 'BLACK' OR COLOR LIKE 'RED'
+  
+
+SELECT *
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  WHERE WEIGHT BETWEEN 1000 AND 1200
+
+
+SELECT ProductID
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  WHERE COLOR LIKE 'RED' OR COLOR LIKE 'BLACK'
+
+
+SELECT SUM(ListPrice)
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  WHERE Weight < 300
+  
+
+
+SELECT ProductNumber
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  WHERE NOT COLOR = 'BLACK' 
+
+
+
+
+
+SELECT ProductNumber
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  WHERE NOT COLOR = 'BLACK' 
+
+SELECT *
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  WHERE COLOR = 'BLACK' AND Weight < 1000
+  
+
+
+SELECT AVG(StandardCost)  as 'average standardcost'
+  FROM [AdventureWorksLT2014].[SalesLT].[PRODUCT]
+  
+
+  
