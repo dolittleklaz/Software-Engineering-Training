@@ -1,0 +1,3 @@
+1.SELECT Name, Color, Size, weight,listprice, ProductNumber 
+  FROM [AdventureWorksLT2014].[SalesLT].[Product]
+  where ProductNumber like 'FR%'
