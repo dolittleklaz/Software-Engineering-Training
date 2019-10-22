@@ -1,0 +1,112 @@
+i.1./****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Customer.CustomerID
+,LastName
+,SalesOrderID
+,OrderDate
+FROM SalesLT.Customer
+INNER JOIN SalesLT.SalesOrderHeader
+ON Customer.CustomerID = SalesOrderHeader.CustomerID
+
+i.2./****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Product.ProductID
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+  FROM [SalesLT].[Product]
+  INNER JOIN [SalesLT].[SalesOrderDetail]
+  ON Product.ProductID = SalesLT.Product.ProductID
+
+i.3. /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Product.ProductID
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+  FROM [SalesLT].[Product]
+ INNER JOIN  [SalesLT].[CustomerAddress]
+  ON Product.ProductID = SalesLT.Product.ProductID
+------------------------------------------------------------------------------------------
+
+L.1./****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Product.ProductID
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+  FROM [SalesLT].[Product]
+  LEFT JOIN [SalesLT].[SalesOrderDetail]
+  ON Product.ProductID = SalesLT.Product.ProductID
+
+L.2. /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Product.ProductID
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+  FROM [SalesLT].[Product]
+ LEFT JOIN  [SalesLT].[CustomerAddress]
+  ON Product.ProductID = SalesLT.Product.ProductID
+
+L.3.  /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  customer.CustomerID
+      ,[NameStyle]
+      ,[Title]
+      ,[FirstName]
+      ,[MiddleName]
+      ,[LastName]
+      ,[Suffix]
+      ,[CompanyName]
+  FROM [AdventureWorksLT2014].[SalesLT].[Customer]
+  LEFT JOIN [SalesLT].[SalesOrderHeader]
+  ON customer.CustomerID = SalesOrderHeader.CustomerID
+------------------------------------------------------------------------------
+R.1. /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Product.ProductID
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+  FROM [SalesLT].[Product]
+  RIGHT JOIN [SalesLT].[SalesOrderDetail]
+  ON Product.ProductID = SalesLT.Product.ProductID
+
+
+R.2. /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Product.ProductID
+      ,[Name]
+      ,[ProductNumber]
+      ,[Color]
+      ,[StandardCost]
+      ,[ListPrice]
+  FROM [SalesLT].[Product]
+ RIGHT JOIN  [SalesLT].[CustomerAddress]
+  ON Product.ProductID = SalesLT.Product.ProductID
+
+R.3. /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  customer.CustomerID
+      ,[NameStyle]
+      ,[Title]
+      ,[FirstName]
+      ,[MiddleName]
+      ,[LastName]
+      ,[Suffix]
+      ,[CompanyName]
+  FROM [AdventureWorksLT2014].[SalesLT].[Customer]
+  RIGHT JOIN [SalesLT].[SalesOrderHeader]
+  ON customer.CustomerID = SalesOrderHeader.CustomerID
+-----------------------------------------------------------------------------------------------
+
+F.1 /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT Customer.CustomerID
+,LastName
+,SalesOrderID
+,OrderDate
+FROM SalesLT.Customer
+FULL OUTER JOIN SalesLT.SalesOrderHeader 
+ON Customer.CustomerID = SalesOrderHeader.CustomerID
