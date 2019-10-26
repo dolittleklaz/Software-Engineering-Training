@@ -1,0 +1,61 @@
+
+
+SELECT product.productid
+  FROM [SalesLT].[Product]
+  inner join [SalesLT].[SalesOrderheader]
+  on product.productid = salesLT.product.productid
+
+
+SELECT customer.customerid,firstname,salesorderid,duedate
+from salesLT.customer
+  inner join SalesLT.SalesOrderHeader
+  on customer.customerid = salesorderheader.customerid
+
+
+SELECT product.productid
+  FROM [SalesLT].[Product]
+  inner join [SalesLT].[SalesOrderdetail]
+  on product.productid = salesLT.product.productid
+
+
+SELECT product.productid
+  FROM [SalesLT].[Product]
+  right join [SalesLT].[SalesOrderdetail]
+  on product.productid = salesLT.product.productid
+
+
+SELECT product.productid
+  FROM [SalesLT].[Product]
+  right join [SalesLT].[SalesOrderheader]
+  on product.productid = salesLT.product.productid
+
+
+SELECT customer.customerid
+  FROM [SalesLT].[customer]
+  right join [SalesLT].[customeraddress]
+  on customer.customerid = salesLT.customer.customerid
+
+
+SELECT product.productid
+  FROM [SalesLT].[product]
+  left join [SalesLT].[productdescription]
+  on product.productid = salesLT.product.productid
+
+
+SELECT  address.addressid
+  FROM [SalesLT].[address]
+  left join [SalesLT].[customeraddress]
+  on address.addressid = salesLT.address.addressid
+
+
+SELECT  customer.customerid
+  FROM [SalesLT].[customer]
+  left join [SalesLT].[productmodelproductdescription]
+  on customer.customerid = salesLT.customer.customerid
+
+
+
+SELECT  customer.customerid
+  FROM [SalesLT].[customer]
+   join [SalesLT].[salesorderheader]
+  on customer.customerid = salesLT.customer.customerid
