@@ -1,0 +1,43 @@
+1a.
+select * 
+from salesLT.Product inner join salesLT.ProductModel
+on salesLT.productModel. ProductModelID = salesLT.ProductModel.ProductModelID
+
+1b.
+select * 
+from salesLT.Product inner join salesLT.ProductDescription
+on salesLT.Product.ProductID= saleslt.ProductDescription.ProductDescriptionID
+1c.
+select * 
+from  salesLT.customer inner join salesLT.SalesOrderDetail
+on salesLT.Customer.CustomerID= saleslt.SalesOrderDetail.SalesOrderDetailID
+
+
+
+
+
+2a.select * 
+from salesLT.Product left outer join salesLT.ProductModel
+on salesLT.productModel. ProductModelID = salesLT.ProductModel.ProductModelID
+
+2b.select * 
+from salesLT.Product left outer join salesLT.ProductDescription
+on salesLT.Product.ProductID= saleslt.ProductDescription.ProductDescriptionID
+
+2c.select * 
+from  salesLT.customer left outer join salesLT.CustomerAddress
+on salesLT.Customer.CustomerID = saleslt.CustomerAddress.AddressID
+
+
+
+3a.select * 
+from salesLT.Product right outer join salesLT.ProductModel
+on salesLT.productModel. ProductModelID = salesLT.ProductModel.ProductModelID
+3b.select * 
+from salesLT.Product right outer join salesLT.ProductDescription
+on salesLT.Product.ProductID= saleslt.ProductDescription.ProductDescriptionID
+3c. select * 
+from  salesLT.customer right outer join salesLT.CustomerAddress
+on salesLT.Customer.CustomerID = saleslt.CustomerAddress.AddressID
+
+4a
