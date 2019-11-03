@@ -1,0 +1,51 @@
+
+
+select SalesLT.ProductCategory. ParentProductCategoryID
+From SalesLT.ProductCategory
+inner join SalesLT.ProductDescription on SalesLT.ProductCategory.ProductCategoryID = ProductDescription.ProductDescriptionID
+
+select SalesLT.ProductCategory. ParentProductCategoryID
+From SalesLT.ProductCategory
+inner join SalesLT.ProductDescription on SalesLT.ProductCategory.ProductCategoryID = ProductDescription.ProductDescriptionID
+
+
+select SalesLT.CustomerAddress.AddressType, SalesLT.Address.City
+from SalesLT.CustomerAddress
+inner join SalesLT.Address on SalesLT.CustomerAddress.AddressID = SalesLT.Address.AddressID
+
+
+select SalesLT.ProductCategory. ParentProductCategoryID
+From SalesLT.ProductCategory
+Right outer join SalesLT.ProductDescription on SalesLT.ProductCategory.ProductCategoryID = ProductDescription.ProductDescriptionID
+
+select SalesLT.CustomerAddress.AddressType, SalesLT.Address.City
+from SalesLT.CustomerAddress
+Right outer join SalesLT.Address on SalesLT.CustomerAddress.AddressID = SalesLT.Address.AddressID 
+
+
+select SalesLT.ProductCategory. ParentProductCategoryID
+From SalesLT.ProductCategory
+Left outer join SalesLT.ProductDescription on SalesLT.ProductCategory.ProductCategoryID = ProductDescription.ProductDescriptionID
+
+select SalesLT.CustomerAddress.AddressType, SalesLT.Address.City
+from SalesLT.CustomerAddress
+Left outer join SalesLT.Address on SalesLT.CustomerAddress.AddressID = SalesLT.Address.AddressID
+
+select product.productID
+from SalesLT.Product
+Left outer join SalesLT.SalesOrderDetail
+on Product.ProductID = SalesLT.Product.ProductID
+
+select *
+from SalesLT.Product
+full outer join SalesLT.ProductCategory on SalesLT.Product.ProductID = SalesLT.ProductCategory.ProductCategoryID
+
+
+select SalesLT.CustomerAddress.AddressType, SalesLT.Address.City
+from SalesLT.CustomerAddress
+full outer join SalesLT.Address on SalesLT.CustomerAddress.AddressID = SalesLT.Address.AddressID
+
+
+select SalesLT.Product.ProductNumber, SalesLT.ProductCategory.ProductCategoryID
+from SalesLT.Product
+full outer join SalesLT.ProductCategory on SalesLT.Product.ProductID = SalesLT.ProductCategory.ProductCategoryID
