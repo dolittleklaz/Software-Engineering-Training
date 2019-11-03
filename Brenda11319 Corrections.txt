@@ -1,0 +1,43 @@
+SELECT[ProductID]
+  FROM [AdventureWorksLT2012].[SalesLT].[Product]
+  LEFT OUTER JOIN [SalesLT].[SalesOrderDetail]
+  ON [Product].[ProductID] = [SalesLT].[ProductID];
+
+  SELECT [ProductID], [ListPrice]
+  FROM [AdventureWorksLT2012].[SalesLT].[Product]
+  RIGHT OUTER JOIN [SalesLT].[ProductModel]
+  ON [Product].[Name] = [ProductModel].[Name];
+
+   SELECT [FirstName], [LastName]
+  FROM [AdventureWorksLT2012].[dbo].[OLE DB Destination]
+  INNER JOIN [SalesLT].[CustomerAddress]
+  ON [OLE DB Destination].[CustomerID] = [CustomerAddress].[CustomerID];
+
+  SELECT TOP (1000) [ProductID]
+      ,[ProductNumber]
+  FROM [AdventureWorksLT2012].[SalesLT].[Product]
+  RIGHT OUTER JOIN [SalesLT].[ProductModelName]
+  ON [Product].[ProductID] = [ProductModel].[ProductID];
+  
+  SELECT ProductID
+      ,[Name]
+      ,[ProductNumber]
+  FROM [SalesLT].[Product]
+ INNER JOIN  [SalesLT].[CustomerAddress]
+  ON Product.ProductID = [Product].ProductID
+
+
+  SELECT*
+      ,[NameStyle]
+      ,[Title]
+  FROM [AdventureWorksLT2012].[SalesLT].[Customer]
+  FULL OUTER JOIN [SalesLT].[CustomerAddress]
+  ON [Customer].[CustomerID] = [CustomerAddress].[CustomerID];
+
+
+  ---Customers who did not make a purchase
+ SELECT [FirstName], [LastName]
+ FROM [AdventureWorksLT2012].[SalesLT].[Customer]
+ LEFT OUTER JOIN [SalesLT].[SalesOrderHeader]
+ ON [Customer].[CustomerID]=[SalesOrderHeader].[CustomerID]
+ WHERE SalesOrderID IS NULL
