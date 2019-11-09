@@ -1,0 +1,95 @@
+
+
+1.
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+INNER JOIN [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+
+
+
+
+SELECT Product.ProductID
+		,[ProductDescription]
+		,[TransactionDate]
+		,[OrderID]
+		,[CustomerID]
+		,[ShipDate]
+FROM [dbo].[Product]
+FULL join [dbo].[Item]
+ON Product.ProductID = dbo.Item.ProductID
+
+
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+		,[OrderDate]
+		,[OrderID]
+FROM [dbo].[Customer]
+full join [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+
+
+
+
+SELECT Customer.CustomerID
+		,[CustomerAddress]
+		,[Email]
+		,[OrderID]
+		,[LastName]
+		,[TransactionDate]
+		,[ShipDate]
+FROM [dbo].[Customer]
+full join [dbo].[Item]
+ON Customer.CustomerID = dbo.Item.CustomerID
+
+
+
+
+SELECT Product.ProductID
+		,[ProductDescription]
+FROM [dbo].[Product]
+LEFT OUTER join [dbo].[Item]
+ON Product.ProductID = dbo.Item.ProductID
+
+
+
+
+SELECT Product.ProductID
+		,[ProductDescription]
+		,[TransactionDate]
+		,[OrderID]
+FROM [dbo].[Product]
+RIGHT OUTER join [dbo].[Item]
+ON Product.ProductID = dbo.Item.ProductID
+
+
+
+
+2.
+
+
+SELECT Customer.CustomerID
+		[FirstName]
+		,[LastName]
+		,[OrderDate]
+		,[ProductDescription]
+		,[OrderDescription]
+FROM [dbo].[Customer]
+inner join [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+inner JOIN [dbo].[Item]
+ON CustomerOrder.CustomerID = dbo.Item.CustomerID
+inner JOIN [dbo].[Product]
+ON Item.ProductID = dbo.Product.ProductID
+
+
+
+
+
+
