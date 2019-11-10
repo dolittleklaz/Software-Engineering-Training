@@ -12,15 +12,42 @@ ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
 
 
 
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+INNER JOIN [dbo].[Item]
+ON Customer.CustomerID = dbo.Item.CustomerID
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+INNER JOIN [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+
+
+
+
 SELECT Product.ProductID
 		,[ProductDescription]
-		,[TransactionDate]
 		,[OrderID]
-		,[CustomerID]
 		,[ShipDate]
 FROM [dbo].[Product]
-FULL join [dbo].[Item]
+INNER join [dbo].[Item]
 ON Product.ProductID = dbo.Item.ProductID
+
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+INNER JOIN [dbo].[Item]
+ON Customer.CustomerID = dbo.Item.CustomerID
+
+
 
 
 
@@ -36,7 +63,6 @@ ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
 
 
 
-
 SELECT Customer.CustomerID
 		,[CustomerAddress]
 		,[Email]
@@ -49,6 +75,45 @@ full join [dbo].[Item]
 ON Customer.CustomerID = dbo.Item.CustomerID
 
 
+SELECT Product.ProductID
+		,[ProductDescription]
+		,[TransactionDate]
+		,[OrderID]
+		,[CustomerID]
+		,[ShipDate]
+FROM [dbo].[Product]
+FULL join [dbo].[Item]
+ON Product.ProductID = dbo.Item.ProductID
+
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+FULL JOIN [dbo].[Item]
+ON Customer.CustomerID = dbo.Item.CustomerID
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+FULL JOIN [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.Customer.CustomerID
+
+
+
+
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+LEFT OUTER JOIN [dbo].[Item]
+ON Customer.CustomerID = dbo.Item.CustomerID
+
 
 
 SELECT Product.ProductID
@@ -56,6 +121,56 @@ SELECT Product.ProductID
 FROM [dbo].[Product]
 LEFT OUTER join [dbo].[Item]
 ON Product.ProductID = dbo.Item.ProductID
+
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+LEFT OUTER JOIN [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.Customer.CustomerID
+
+
+SELECT CustomerOrder.CustomerID
+		,[TransactionDate]
+FROM [dbo].[CustomerOrder]
+LEFT OUTER JOIN [dbo].[Item]
+ON CustomerOrder.CustomerID = dbo.Item.CustomerID
+
+
+SELECT CustomerOrder.CustomerID
+		,[TransactionDate]
+		,[OrderDate]
+		,[Quantity]
+FROM [dbo].[CustomerOrder]
+LEFT OUTER JOIN [dbo].[Item]
+ON CustomerOrder.CustomerID = dbo.Item.CustomerID
+
+
+
+
+
+
+SELECT Product.ProductID
+		,[ProductDescription]
+		,[TransactionDate]
+		,[OrderID]
+		,[CustomerID]
+		,[ShipDate]
+FROM [dbo].[Product]
+RIGHT OUTER join [dbo].[Item]
+ON Product.ProductID = dbo.Item.ProductID
+
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+RIGHT JOIN [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+
 
 
 
@@ -67,6 +182,29 @@ SELECT Product.ProductID
 FROM [dbo].[Product]
 RIGHT OUTER join [dbo].[Item]
 ON Product.ProductID = dbo.Item.ProductID
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+		,[Email]
+FROM [dbo].[Customer]
+RIGHT JOIN [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+
+
+SELECT Customer.CustomerID
+		,[FirstName]
+		,[LastName]
+FROM [dbo].[Customer]
+RIGHT OUTER JOIN [dbo].[Item]
+ON Customer.CustomerID = dbo.Item.CustomerID
+
+
+
+
+
+
 
 
 
@@ -87,6 +225,58 @@ inner JOIN [dbo].[Item]
 ON CustomerOrder.CustomerID = dbo.Item.CustomerID
 inner JOIN [dbo].[Product]
 ON Item.ProductID = dbo.Product.ProductID
+
+
+
+SELECT Customer.CustomerID
+		[FirstName]
+		,[LastName]
+		,[OrderDate]
+		,[ProductDescription]
+		,[OrderDescription]
+FROM [dbo].[Customer]
+LEFT join [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+LEFT JOIN [dbo].[Item]
+ON CustomerOrder.CustomerID = dbo.Item.CustomerID
+LEFT JOIN [dbo].[Product]
+ON Item.ProductID = dbo.Product.ProductID
+
+
+SELECT Customer.CustomerID
+		[FirstName]
+		,[LastName]
+		,[OrderDate]
+		,[ProductDescription]
+		,[OrderDescription]
+FROM [dbo].[Customer]
+RIGHT join [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+RIGHT JOIN [dbo].[Item]
+ON CustomerOrder.CustomerID = dbo.Item.CustomerID
+RIGHT JOIN [dbo].[Product]
+ON Item.ProductID = dbo.Product.ProductID
+
+
+
+SELECT Customer.CustomerID
+		[FirstName]
+		,[LastName]
+		,[OrderDate]
+		,[ProductDescription]
+		,[OrderDescription]
+FROM [dbo].[Customer]
+FULL join [dbo].[CustomerOrder]
+ON Customer.CustomerID = dbo.CustomerOrder.CustomerID
+FULL JOIN [dbo].[Item]
+ON CustomerOrder.CustomerID = dbo.Item.CustomerID
+FULL JOIN [dbo].[Product]
+ON Item.ProductID = dbo.Product.ProductID
+
+
+
+
+
 
 
 
