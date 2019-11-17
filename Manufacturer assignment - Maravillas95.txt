@@ -1,0 +1,27 @@
+SELECT
+		[FirstName]
+		,[LastName]
+		,[ProductName]
+		,[OrderID]
+		,[PayType]
+		,[TransactionDate]
+		,[ShipDate]
+FROM [dbo].[Item]
+FULL JOIN dbo.Customer
+ON Item.CustomerID = Customer.CustomerID
+FULL JOIN dbo.Product
+ON Item.ProductID = Product.ProductID
+FULL JOIN dbo.Payment
+ON Item.PayID = Payment.PayID
+
+
+
+
+SELECT 
+		[ProductName]
+		,[DistributorName]
+FROM dbo.Dist_prod
+full join dbo.Product
+on Dist_prod.ProductID = Product.ProductID
+FULL JOIN dbo.Distributor
+on Dist_prod.DistributorID = Distributor.DistributorID
