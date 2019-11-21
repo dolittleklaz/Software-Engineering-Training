@@ -1,0 +1,43 @@
+****** Script for SelectTopNRows command from SSMS  ******/
+SELECT*
+FROM dbo.Manufacturing
+SELECT*
+FROM  dbo.Distributors
+SELECT *
+FROM [dbo].[Orders]
+SELECT*
+FROM dbo.Payment
+
+	INSERT INTO Orders
+	VALUES (2,'JOYJOY2',1010,50,5,2,2);
+	INSERT INTO Orders
+	VALUES (3,'JOYJOY2',1010,50,25,2,3);
+	INSERT INTO Orders
+	VALUES (4,'JOYJOY2',1010,50,15,2,4);
+
+UPDATE Orders
+SET ProductName = 'JOYJOY'
+WHERE OrdersID = 3;
+
+UPDATE Orders
+SET price = 25
+WHERE OrdersID = 3;
+
+UPDATE Orders
+SET productnumber = 1030
+WHERE OrdersID = 4;
+
+DELETE FROM Manufacturing
+WHERE Address = 'ISNULL'
+
+ UPDATE Manufacturing
+  SET Address = 'jjbalome street jos'
+  WHERE ManufacturingID = 1;
+
+  UPDATE Manufacturing
+  SET Address = 'Lobalome street Aba'
+  WHERE ManufacturingID = 3;
+
+ UPDATE Manufacturing
+  SET ProductNumber = 1030
+  WHERE ManufacturingID = 4;
