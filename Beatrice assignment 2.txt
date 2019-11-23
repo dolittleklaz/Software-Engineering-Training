@@ -1,0 +1,93 @@
+
+Insert Into dbo.Payment (PayID,Paytype) Values (2, 'Check')
+Insert Into dbo.Payment (PayID,Paytype) Values (3, 'Paypal')
+Insert Into dbo.Payment (PayID,Paytype) Values (4, 'money order')
+  
+Insert Into dbo.Payment (PayID,Paytype) Values (5, 'Cashiers check')
+
+Insert Into Distributor (DistributorID, DistributorName, ManufacturerID)Values (100,'Automotive products', 04);
+Insert Into Distributor (DistributorID, DistributorName, ManufacturerID)Values (200,'Sysco', 03);
+Insert Into Distributor (DistributorID, DistributorName, ManufacturerID)Values (300,'Industrial supplies', 05);
+Insert Into Distributor (DistributorID, DistributorName, ManufacturerID)Values (400,'Electronic Items', 01);
+Insert Into Distributor (DistributorID, DistributorName, ManufacturerID)Values (500,'Sports Products', 02);
+
+Insert Into Manufacturer (ManufacturerID,ManufacturerName)Values (01,' General Electric');
+Insert Into Manufacturer (ManufacturerID,ManufacturerName)Values (02,'microsoft');
+Insert Into Manufacturer (ManufacturerID,ManufacturerName)Values (03,'Boeing');
+Insert Into Manufacturer (ManufacturerID,ManufacturerName)Values (04,'General Motors Co');
+Insert Into Manufacturer (ManufacturerID,ManufacturerName)Values (05,'Philipps');
+ 
+
+
+UPDATE Item
+set orderamount=50
+where customerID=1;
+update item
+set orderamount=400
+where productID=493;
+
+
+ALTER  Table Item
+ADD PayID INT 
+
+
+UPDATE Item
+set orderamount=50
+where customerID=1;
+
+update item
+set orderamount=400
+where productID=493;
+update CustomerOrder
+set Quantity = 10
+where CustomerID = 4
+update item
+set PayID=2
+WHERE CustomerID=1
+update item
+set PayID=1
+WHERE CustomerID=5;
+update item
+set PayID=3
+WHERE CustomerID=4;
+update item
+set PayID=4
+WHERE CustomerID=3;
+update item
+set PayID=5
+WHERE CustomerID=2;
+
+
+
+SELECT
+		[FirstName]
+		,[LastName]
+		,[ProductName]
+		,[OrderID]
+		,[PayType]
+		,[TransactionDate]
+		,[ShipDate]
+FROM [dbo].[Item]
+FULL JOIN dbo.Customer
+ON Item.CustomerID = Customer.CustomerID
+FULL JOIN dbo.Product
+ON Item.ProductID = Product.ProductID
+FULL JOIN dbo.Payment
+ON Item.PayID = Payment.PayID
+
+
+
+
+
+SELECT 
+		[ProductName]
+		,[DistributorName]
+FROM dbo.Distproduct
+full join dbo.Product
+on Distproduct.ProductID = Product.ProductID
+FULL JOIN dbo.Distributor
+on Distproduct.DistributorID = Distributor.DistributorID
+
+
+
+
