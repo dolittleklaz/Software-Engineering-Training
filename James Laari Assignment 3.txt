@@ -1,0 +1,111 @@
+	Item Table
+
+Update Item
+set OrderAmount=250 where ProductID=61
+
+Update Item
+set OrderAmount=905 where ProductID=130
+
+Update Item
+set OrderAmount=750 where ProductID=300
+
+
+CustomerOrder Table
+
+Update CustomerOrder
+set Quantity=200 where CustomerID=11
+
+Update CustomerOrder
+set Quantity=250 where CustomerID=12
+
+Update CustomerOrder
+set Quantity=300 where CustomerID=15
+
+
+Customer Table
+
+Update Customer
+set Email = 'Matthew.Doe@gmail.com' where CustomerID=11
+
+Update Customer
+set Email='James.Laari@yahoo.com' where CustomerID=12
+
+Update Customer
+set Email='Kate.Jeff@Yahoo.com' where CustomerID=15
+
+
+
+
+INSERT Into Payment(PaymentID, Paytype) Values(4, 'Check');
+INSERT Into Payment(PaymentID, Paytype) Values(5, 'Paypal');
+INSERT Into Payment(PaymentID, Paytype) Values(6, 'BankTransfer');
+INSERT Into Payment(PaymentID, Paytype) Values(7, 'MoneyOder'); 
+INSERT Into Payment(PaymentID, Paytype) Values(8, 'VisaCard, MasterCard, AmericaExpress');
+
+
+INSERT Into Manufacturer(ManufacturerName, ManufacturerID) Values('Dell', 333);
+INSERT Into Manufacturer(ManufacturerName, ManufacturerID) Values('Quad/Graphics', 332);
+INSERT Into Manufacturer(ManufacturerName, ManufacturerID) Values('HP', 331);
+INSERT Into Manufacturer(ManufacturerName, ManufacturerID) Values('American Apparel', 330);
+InSERT Into Manufacturer(ManufacturerName, ManufacturerID) Values('Apple', 334);
+
+
+INSERT Into Distributor(DistributorName, DistributorID, ManufacturerID) Values('Walmart', 220, 330);
+INSERT Into Distributor(DistributorName, DistributorID, ManufacturerID) Values('BestBuy', 221, 331);
+INSERT Into Distributor(DistributorName, DistributorID, ManufacturerID) Values('OfficeDepot', 222, 332);
+INSERT Into Distributor(DistributorName, DistributorID, ManufacturerID) Values('Staples', 223, 333);
+INSERT Into Distributor(DistributorName, DistributorID, ManufacturerID) Values('AppleStore', 224, 334);
+ALTER TABLE Item
+ADD PaymentID INT 
+
+
+
+UPDATE Item
+SET PaymentID=5
+where ProductID=300;
+UPDATE Item
+SET PaymentID=6
+where ProductID=61;
+UPDATE Item
+SET PaymentID=7
+where ProductID=56;
+UPDATE Item
+SET PaymentID=8
+where ProductID=201;
+
+
+
+
+INSERT INTO Distproduct( DistributorID, ProductID, DistProductID) VALUES(220, 56, 1);
+INSERT INTO Distproduct( DistributorID, ProductID, DistProductID) VALUES(221, 61, 2);
+INSERT INTO Distproduct( DistributorID, ProductID, DistProductID) VALUES(222, 130, 3);
+INSERT INTO Distproduct( DistributorID, ProductID, DistProductID) VALUES(223, 201, 4);
+INSERT INTO Distproduct( DistributorID, ProductID, DistProductID) VALUES(224, 300, 5);
+
+
+SELECT 
+		[ProductName]
+		,[DistributorName]
+FROM dbo.Distproduct
+full join dbo.Product
+on Distproduct.ProductID = Product.ProductID
+FULL JOIN dbo.Distributor
+on Distproduct.DistributorID = Distributor.DistributorID
+
+
+SELECT
+		[FirstName]
+		,[LastName]
+		,[ProductName]
+		,[OrderID]
+		,[Paytype]
+		,[TransactionDate]
+		,[ShipDate]
+FROM [dbo].[Item]
+FULL JOIN dbo.Customer
+ON Item.CustomerID = Customer.CustomerID
+FULL JOIN dbo.Product
+ON Item.ProductID = Product.ProductID
+FULL JOIN dbo.Payment
+ON Item.PaymentID = Payment.PaymentID
+
