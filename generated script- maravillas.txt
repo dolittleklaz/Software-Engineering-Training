@@ -1,0 +1,478 @@
+/*
+
+ * ER/Studio Data Architect SQL Code Generation
+
+ * Project :      LOGICAL MODEL.DM1
+
+ *
+
+ * Date Created : Thursday, December 05, 2019 13:49:39
+
+ * Target DBMS : Microsoft SQL Server 2014
+
+ */
+
+
+
+USE Oluwakayode
+
+go
+
+/* 
+
+ * TABLE: CUSTOMER 
+
+ */
+
+
+
+CREATE TABLE CUSTOMER(
+
+    CUSTOMERID         int             NOT NULL,
+
+    PHONENUMBER        int             NOT NULL,
+
+    EMAIL              varchar(100)    NULL,
+
+    CUSTOMERADDRESS    varchar(100)    NOT NULL,
+
+    FIRSTNAME          varchar(100)    NOT NULL,
+
+    LASTNAME           varchar(100)    NOT NULL,
+
+    CONSTRAINT PK1 PRIMARY KEY NONCLUSTERED (CUSTOMERID)
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('CUSTOMER') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE CUSTOMER >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE CUSTOMER >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: CUSTOMERORDER 
+
+ */
+
+
+
+CREATE TABLE CUSTOMERORDER(
+
+    CUSTOMERID          int             NOT NULL,
+
+    ORDERID             varchar(100)    NOT NULL,
+
+    PRODUCTID           int             NOT NULL,
+
+    QUANTITY            int             NOT NULL,
+
+    ORDERDATE           date            NOT NULL,
+
+    ORDERDESCRIPTION    varchar(100)    NOT NULL,
+
+    CONSTRAINT PK10 PRIMARY KEY NONCLUSTERED (CUSTOMERID, ORDERID, PRODUCTID)
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('CUSTOMERORDER') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE CUSTOMERORDER >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE CUSTOMERORDER >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: [DIST-PROD] 
+
+ */
+
+
+
+CREATE TABLE [DIST-PROD](
+
+    PRODUCTID        int    NOT NULL,
+
+    DISTRIBUTORID    int    NOT NULL,
+
+    [DIST-PRODID]    int    NOT NULL,
+
+    CONSTRAINT PK7 PRIMARY KEY NONCLUSTERED (PRODUCTID, DISTRIBUTORID, [DIST-PRODID])
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('DIST-PROD') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE DIST-PROD >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE DIST-PROD >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: DISTRIBUTOR 
+
+ */
+
+
+
+CREATE TABLE DISTRIBUTOR(
+
+    DISTRIBUTORID      int             NOT NULL,
+
+    DISTRIBUTORNAME    varchar(100)    NOT NULL,
+
+    MANUFACTURERID     int             NULL,
+
+    CONSTRAINT PK5 PRIMARY KEY NONCLUSTERED (DISTRIBUTORID)
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('DISTRIBUTOR') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE DISTRIBUTOR >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE DISTRIBUTOR >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: ITEM 
+
+ */
+
+
+
+CREATE TABLE ITEM(
+
+    PRODUCTID          int             NOT NULL,
+
+    CUSTOMERID         int             NOT NULL,
+
+    ORDERID            varchar(100)    NOT NULL,
+
+    PAYID              int             NOT NULL,
+
+    ORDERAMOUNT        int             NOT NULL,
+
+    TRANSACTIONDATE    date            NULL,
+
+    SHIPDATE           date            NULL,
+
+    CONSTRAINT PK4 PRIMARY KEY NONCLUSTERED (PRODUCTID, CUSTOMERID, ORDERID, PAYID)
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('ITEM') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE ITEM >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE ITEM >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: MANUFACTURER 
+
+ */
+
+
+
+CREATE TABLE MANUFACTURER(
+
+    MANUFACTURERID      int             NOT NULL,
+
+    DISTRIBUTORID       int             NOT NULL,
+
+    MANUFACTURERNAME    varchar(100)    NOT NULL,
+
+    CONSTRAINT PK6 PRIMARY KEY NONCLUSTERED (MANUFACTURERID, DISTRIBUTORID)
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('MANUFACTURER') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE MANUFACTURER >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE MANUFACTURER >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: PAYMENT 
+
+ */
+
+
+
+CREATE TABLE PAYMENT(
+
+    PAYID      int             NOT NULL,
+
+    PAYTYPE    varchar(100)    NOT NULL,
+
+    CONSTRAINT PK8 PRIMARY KEY NONCLUSTERED (PAYID)
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('PAYMENT') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE PAYMENT >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE PAYMENT >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: PRODUCT 
+
+ */
+
+
+
+CREATE TABLE PRODUCT(
+
+    PRODUCTID             int             NOT NULL,
+
+    PRODUCTNAME           varchar(100)    NULL,
+
+    PRODUCTDESCRIPTION    varchar(100)    NULL,
+
+    CONSTRAINT PK3 PRIMARY KEY NONCLUSTERED (PRODUCTID)
+
+)
+
+go
+
+
+
+
+
+
+
+IF OBJECT_ID('PRODUCT') IS NOT NULL
+
+    PRINT '<<< CREATED TABLE PRODUCT >>>'
+
+ELSE
+
+    PRINT '<<< FAILED CREATING TABLE PRODUCT >>>'
+
+go
+
+
+
+/* 
+
+ * TABLE: CUSTOMERORDER 
+
+ */
+
+
+
+ALTER TABLE CUSTOMERORDER ADD CONSTRAINT RefCUSTOMER3 
+
+    FOREIGN KEY (CUSTOMERID)
+
+    REFERENCES CUSTOMER(CUSTOMERID)
+
+go
+
+
+
+ALTER TABLE CUSTOMERORDER ADD CONSTRAINT RefPRODUCT5 
+
+    FOREIGN KEY (PRODUCTID)
+
+    REFERENCES PRODUCT(PRODUCTID)
+
+go
+
+
+
+
+
+/* 
+
+ * TABLE: [DIST-PROD] 
+
+ */
+
+
+
+ALTER TABLE [DIST-PROD] ADD CONSTRAINT RefDISTRIBUTOR9 
+
+    FOREIGN KEY (DISTRIBUTORID)
+
+    REFERENCES DISTRIBUTOR(DISTRIBUTORID)
+
+go
+
+
+
+ALTER TABLE [DIST-PROD] ADD CONSTRAINT RefPRODUCT8 
+
+    FOREIGN KEY (PRODUCTID)
+
+    REFERENCES PRODUCT(PRODUCTID)
+
+go
+
+
+
+
+
+/* 
+
+ * TABLE: ITEM 
+
+ */
+
+
+
+ALTER TABLE ITEM ADD CONSTRAINT RefCUSTOMERORDER4 
+
+    FOREIGN KEY (CUSTOMERID, ORDERID, PRODUCTID)
+
+    REFERENCES CUSTOMERORDER(CUSTOMERID, ORDERID, PRODUCTID)
+
+go
+
+
+
+ALTER TABLE ITEM ADD CONSTRAINT RefPAYMENT7 
+
+    FOREIGN KEY (PAYID)
+
+    REFERENCES PAYMENT(PAYID)
+
+go
+
+
+
+ALTER TABLE ITEM ADD CONSTRAINT RefPRODUCT6 
+
+    FOREIGN KEY (PRODUCTID)
+
+    REFERENCES PRODUCT(PRODUCTID)
+
+go
+
+
+
+
+
+/* 
+
+ * TABLE: MANUFACTURER 
+
+ */
+
+
+
+ALTER TABLE MANUFACTURER ADD CONSTRAINT RefDISTRIBUTOR10 
+
+    FOREIGN KEY (DISTRIBUTORID)
+
+    REFERENCES DISTRIBUTOR(DISTRIBUTORID)
+
+go
+
+
+
+
+
