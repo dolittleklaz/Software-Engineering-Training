@@ -1,0 +1,56 @@
+INNER JOIN;
+
+select [DistributorName],[ManufacturerName] from Manufacturer INNER JOIN Distributor ON Manufacturer.DistributorID = Distributor.ManufacturerID;
+select [PayType],[TransactionDate],[ShipDate] from Item INNER JOIN Payment ON Item.PayID = Payment.PayID;
+select [FirstName],[LastName],[OrderDescription],[Email] from Customer INNER JOIN CustomerOrder ON Customer.CustomerID = CustomerOrder.CustomerID;
+select [Quantity],[OrderID],[PayID] from CustomerOrder INNER JOIN Item ON CustomerOrder.CustomerID = Item.CustomerID;
+select [ProductName],[Quantity] from Product INNER JOIN CustomerOrder ON Product.ProductID = CustomerOrder.ProductID;
+
+ORDER BY;
+
+Select * FROM Customer ORDER BY LastName ASC;
+Select * FROM Produt ORDER BY ProductName;
+select * FROM Item ORDER BY TransactionDate DESC;
+Select ManufacturerName FROM Manufacturer ORDER BY ManufacturerName ASC;
+select [ProductName],[Quantity] from Product INNER JOIN CustomerOrder ON Product.ProductID = CustomerOrder.ProductID ORDER BY Quantity DESC;
+
+GROUP BY/AGGREGATE FUNCTION;
+
+SELECT COUNT(CustomerID)
+FROM Item
+GROUP BY TransactionDate;
+
+SELECT AVG(Quantity)
+FROM CustomerOrder
+GROUP BY OrderDate;
+
+SELECT MAX(Quantity)
+FROM CustomerOrder
+GROUP BY OrderDate;
+
+SELECT MIN(Quantity)
+FROM CustomerOrder
+GROUP BY OrderDate;
+
+SELECT SUM(OrderAmount)
+FROM Item
+GROUP BY TransactionDate;
+
+LEFT JOIN;
+
+select [ProductName],[ProductDescription],[DistributorID] FROM Product LEFT JOIN DIST_PROD ON Product.ProductID = DIST_PROD.ProductID;
+select [FirstName],[LastName],[OrderDate] FROM Customer LEFT JOIN CustomerOrder ON Customer.CustomerID = CustomerOrder.CustomerID;
+select [Quantity],[OrderID],[PayID] from CustomerOrder LEFT JOIN Item ON CustomerOrder.CustomerID = Item.CustomerID;
+select [ProductName],[Quantity] from Product LEFT JOIN CustomerOrder ON Product.ProductID = CustomerOrder.ProductID;  
+select [ProductName],[OrderID] FROM Product LEFT JOIN Item ON Product.ProductID = Item.ProductID
+
+RIGHT JOIN;
+
+select [DistributorName],[ManufacturerName] from Manufacturer RIGHT JOIN Distributor ON Manufacturer.DistributorID = Distributor.ManufacturerID;
+select [PayType],[TransactionDate],[ShipDate] from Item RIGHT JOIN Payment ON Item.PayID = Payment.PayID;
+select [Quantity],[OrderID],[PayID] from CustomerOrder RIGHT JOIN Item ON CustomerOrder.CustomerID = Item.CustomerID;
+select [ProductName],[Quantity] from Product RIGHT JOIN CustomerOrder ON Product.ProductID = CustomerOrder.ProductID;  
+select [ProductName],[OrderID] FROM Product RIGHT JOIN Item ON Product.ProductID = Item.ProductID
+
+
+
