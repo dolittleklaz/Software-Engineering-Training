@@ -19,7 +19,7 @@ FROM SalesLt.Customer;
 SELECT Name AS ProductName, ProductNumber, Color, Size, Weight, SellStartDate AS SalesDate, ListPrice - StandardCost AS Profit
 FROM SalesLT.Product;
 
--- 4 The date the product stopped being sold--
+-- 4 Include the date the product stopped being sold in Q3--
 SELECT Name AS ProductName, ProductNumber, Color, Size, Weight, SellStartDate AS SalesDate, ListPrice - StandardCost AS Profit, SellEndDate
 FROM SalesLT.Product;
 
