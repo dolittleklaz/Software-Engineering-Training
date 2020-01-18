@@ -1,0 +1,28 @@
+Barry Nwiko - Assignment
+Questions
+1. Give me all the information from the customer table
+2. Give me Customer FirstName, MiddleName, LastName, EmailAddress, PhoneNumber
+3. ProductName, ProductNumber, Color, Size, Weight, SalesDate, Profit
+4. Product Information listed in 3 along side the date they stopped selling the product
+5. Sales information in the database: ProductID, SalesOrderID, UnitPrice, UnitPriceDiscount, LineTotalAmount.
+
+
+Answers
+-- 1 Display all the information on the Customer Table--
+SELECT * FROM SalesLt.Customer;
+
+-- 2 Display the listed information--
+SELECT FirstName, MiddleName, LastName, EmailAddress, Phone AS PhoneNumber 
+FROM SalesLt.Customer;
+
+-- 3 List of the listed products--
+SELECT Name AS ProductName, ProductNumber, Color, Size, Weight, SellStartDate AS SalesDate, ListPrice - StandardCost AS Profit
+FROM SalesLT.Product;
+
+-- 4 The date the product stopped being sold--
+SELECT Name AS ProductName, ProductNumber, Color, Size, Weight, SellStartDate AS SalesDate, ListPrice - StandardCost AS Profit, SellEndDate
+FROM SalesLT.Product;
+
+-- 5 Sales Information in the database--
+SELECT ProductID, SalesOrderID, UnitPrice, UnitPriceDiscount, LineTotal AS LineTotalAmount 
+FROM SalesLT.SalesOrderDetail;
