@@ -1,0 +1,84 @@
+Barry Nwiko
+
+Create your own store! Your store should sell one type of things, like clothing or bikes, 
+whatever you want your store to specialize in. 
+You should have a table for all the items in your store, 
+and at least 5 columns for the kind of data you think you'd need to store. 
+You should sell at least 15 items and use select statements to display your items(all items, some items, 
+rename some items) and show at least one 3 calculations using expressions about the items.
+ 
+Hint 1: look up a create table statement on google
+Hint 2: look up an insert into table statement on google
+
+
+-- Delete table
+DROP Table dbo.Groceries;
+
+
+--table creation--
+CREATE TABLE Groceries (
+  ProductID Integer PRIMARY KEY, 
+  Item Text, 
+  Aisle integer,
+  QuantitySold Integer,
+  CostPrice Money,
+  Expenses Money,
+  DateSold Date,
+);
+
+
+--add records--
+INSERT INTO Groceries values (1, 'Apple', 8, 50, 0.99, 0.75, '2020-01-05');
+INSERT INTO Groceries values (2, 'Eggs', 120, 10, 8.00, 1.99, '2020-01-02');
+INSERT INTO Groceries values (3, 'Spinach', 160, 6, 1.70, 0.99, '2020-01-03');
+INSERT INTO Groceries values (4, 'Brown Bread', 75, 15, 3.10, 1.00, '2020-01-04');
+INSERT INTO Groceries values (5, 'Hive Honey', 65, 7, 15.00, 3.00, '2020-01-06');
+INSERT INTO Groceries values (6, 'Turkey Breast', 60, 18, 7.15, 1.99, '2020-01-08');
+INSERT INTO Groceries values (7, 'Steak sauce', 45, 9, 3.00, 1.00, '2020-01-03');
+INSERT INTO Groceries values (8, 'Milk', 40, 12, 5.00, 1.50, '2020-01-06');
+INSERT INTO Groceries values (9, 'Ice Cream', 45, 5, 8.50, 2.10, '2020-01-08');
+INSERT INTO Groceries values (10, 'Water Melon', 110, 10, 1.25, 0.79, '2020-01-03');
+INSERT INTO Groceries values (11, 'Peanut Butter', 35, 12, 10.00, 3.00, '2020-01-05');
+INSERT INTO Groceries values (12, 'Banana', 40, 8, 1.55, 0.65, '2020-01-06');
+INSERT INTO Groceries values (13, 'Cabbage', 70, 15, 3.55, 1.25, '2020-01-02');
+INSERT INTO Groceries values (14, 'Tomato sauce', 40, 10, 8.05, 1.55, '2020-01-04');
+INSERT INTO Groceries values (15, 'Cracker Biscuit', 40, 12, 4.50, 1.14, '2020-01-06');
+
+
+
+--Display all columns--
+SELECT * FROM dbo.Groceries;
+
+
+
+--To calculate sales price per unit--
+SELECT ProductID, Item, Aisle, QuantitySold, CostPrice, Expenses, 
+   (CostPrice + Expenses) * 0.25 + (CostPrice + Expenses) AS SalesPrice, 
+   (CostPrice + Expenses) * 0.25 AS SalesProfit, DateSold
+FROM dbo.Groceries;
+
+
+
+
+--Sales Profit for each item and quantity sold--
+SELECT ProductID, Item, Aisle, QuantitySold, CostPrice, Expenses, 
+   (CostPrice + Expenses) * 0.25 + (CostPrice + Expenses) AS SalesPrice,
+   (CostPrice + Expenses) * 0.25 AS SalesProfit,
+   QuantitySold * (CostPrice + Expenses) * 0.25 AS QuantitySoldProfit, DateSold
+FROM dbo.Groceries;
+
+
+
+--Display items--
+SELECT Item FROM dbo.Groceries;
+
+
+
+--Rename an item--
+UPDATE dbo.Groceries
+SET Item = 'Sweet Corn'
+WHERE ProductID = 8;
+
+
+SELECT Item FROM dbo.Groceries
+
