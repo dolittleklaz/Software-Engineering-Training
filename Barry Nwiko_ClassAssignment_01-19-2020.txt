@@ -1,0 +1,98 @@
+
+Barry Nwiko
+
+Assignment 1: (01/19/2020)
+
+Minimum of 3 queries each using each of the predicates treated in class: = <>, IN, NOT IN, BETWEEN, LIKE,
+AND, OR & NOT.
+
+Solution:
+
+--Display all columns
+SELECT *  FROM SalesLT.Product;
+
+
+--List information about Product Number that starts with BB
+SELECT Name, Color, Size, ProductModelID, ProductNumber FROM SalesLT.Product 
+WHERE ProductNumber LIKE 'BB-[0-9][0-9][0-9][0-9]';
+
+
+--List information about Name changed to Product name that starts with ML
+SELECT Name AS ProductName, Color, Size, ProductModelID, ProductNumber 
+FROM SalesLT.Product WHERE Name LIKE 'ML%';
+
+
+--List information about Product Number that does not start with BK and also FR
+SELECT Name, Color, Size, ProductModelID, ProductNumber FROM SalesLT.Product 
+WHERE ProductNumber NOT LIKE 'BK%' AND ProductNumber NOT LIKE 'FR%';
+
+
+
+--Find products that have no sell end date
+SELECT Name, SellEndDate FROM SalesLT.Product WHERE SellEndDate IS NULL;
+
+
+
+--Find products that do have weight information and size not stated
+SELECT Name,Size, Weight FROM SalesLT.Product 
+WHERE Weight IS NOT NULL AND Size IS NULL;
+
+
+
+--Find products that do have no weight information but size
+SELECT Name,Size, Weight FROM SalesLT.Product 
+WHERE Weight IS NULL AND Size IS NOT NULL;
+
+
+
+--Find products that have sell end date in 2003
+SELECT Name, SellEndDate FROM SalesLT.Product 
+WHERE SellEndDate BETWEEN '2002/1/1' AND '2003/12/31';
+
+
+
+--Find products that cost between 200 & 500 Dollars
+SELECT Name, ListPrice FROM SalesLT.Product 
+WHERE ListPrice BETWEEN 200.00 AND 500.00;
+
+
+
+--Find products that have size between 44 & 60
+SELECT Name, ListPrice, Size FROM SalesLT.Product 
+WHERE Size BETWEEN '44' AND '60';
+
+
+
+
+--Find products that have a Model ID of 17, 117, or 127.
+SELECT Name, ProductModelID FROM SalesLT.Product 
+WHERE ProductModelID IN (17, 117, 127);
+
+
+
+--Find products that do not have Category ID of 5, 6, 7, 8, 9 or 18.
+SELECT Name, ProductCategoryID FROM SalesLT.Product 
+WHERE ProductCategoryID NOT IN (5, 6, 7, 8, 9, 18);
+
+
+
+--Find products that do have size of 44, 50, 55, or 60 and price not more than 500.
+SELECT Name, Size, ListPrice FROM SalesLT.Product 
+WHERE Size IN ('44', '50', '55', '60') AND ListPrice BETWEEN 200 AND 500;
+
+
+
+--Find products that have a model ID of 1, 5, 6, or 9 and have a sell end date
+SELECT Name, ProductModelID,  ListPrice, SellEndDate FROM SalesLT.Product 
+WHERE ProductModelID IN (1, 5, 6, 9) AND SellEndDate IS NULL;
+
+
+
+--Select products that have a category ID of 16, 18, 20, or 22 and a product number that begins BK
+SELECT Name, ProductCategoryID, ProductNumber FROM SalesLT.Product 
+WHERE ProductNumber LIKE 'BK%' OR ProductCategoryID IN (16, 18, 20, 22);
+
+
+--Select products that have a size of 44 and a price range of 500 & 800
+SELECT Name, ProductCategoryID, Size, ListPrice FROM SalesLT.Product 
+WHERE Size = '44' AND ListPrice BETWEEN 500 AND 800;
